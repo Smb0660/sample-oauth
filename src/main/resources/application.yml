@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: sample-oauth
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate.ddl-auto: update
+  datasource:
+    url: "jdbc:mysql://localhost:3306/sample-oauth"
+    username: root
+    password: 1234
+security:
+  jwt:
+    key-store: classpath:keystore
+    key-store-password: simple
+    key-pair-alias: sample-oauth
+    key-pair-password: simple
