@@ -1,43 +1,42 @@
--- DDL for creating OAuth clients details.
-drop table if exists oauth_client_details
-create table oauth_client_details
+-- DDL create database
+CREATE DATABASE IF NOT EXISTS sample_oauth;
+USE sample_oauth;
+
+-- DDL for creating oauth client credentials table
+DROP TABLE IF EXISTS oauth_client_details;
+CREATE TABLE oauth_client_details
 (
-    client_id               varchar(256)  not null
-        primary key,
-    resource_ids            varchar(256)  null,
-    client_secret           varchar(256)  not null,
-    scope                   varchar(256)  null,
-    authorized_grant_types  varchar(256)  null,
-    web_server_redirect_uri varchar(256)  null,
-    authorities             varchar(256)  null,
-    access_token_validity   smallint      null,
-    refresh_token_validity  int           null,
-    additional_information  varchar(4000) null,
-    autoapprove             varchar(256)  null
+    client_id               VARCHAR(256)  NOT NULL PRIMARY KEY,
+    resource_ids            VARCHAR(256)  DEFAULT NULL,
+    client_secret           VARCHAR(256)  NOT NULL,
+    scope                   VARCHAR(256)  DEFAULT NULL,
+    authorized_grant_types  VARCHAR(256)  DEFAULT NULL,
+    web_server_redirect_uri VARCHAR(256)  DEFAULT NULL,
+    authorities             VARCHAR(256)  DEFAULT NULL,
+    access_token_validity   SMALLINT      DEFAULT NULL,
+    refresh_token_validity  INTEGER       DEFAULT NULL,
+    additional_information  VARCHAR(4000) DEFAULT NULL,
+    autoapprove             VARCHAR(256)  DEFAULT NULL
 );
 
 -- DDL for creating users table
-drop table if exists users
-create table users
+DROP TABLE IF EXISTS users;
+CREATE TABLE users
 (
-    id         bigint auto_increment
-        primary key,
-    created_at datetime         null,
-    enabled    bit default b'0' not null,
-    name       varchar(60)      not null,
-    password   varchar(170)     not null,
-    username   varchar(50)      not null,
-    constraint UK_r43af9ap4edm43mmtq01oddj6
-        unique (username)
+    id			BIGINT AUTO_INCREMENT PRIMARY KEY,
+    created_at  DATETIME         NULL,
+    enabled     BIT DEFAULT b'1' NOT NULL,
+    name        VARCHAR(60)      NOT NULL,
+    password    VARCHAR(170)     NOT NULL,
+    username    VARCHAR(50)      NOT NULL UNIQUE
 );
 
 -- DDL for creating authorities table
-drop table if exists authorities
-create table authorities
+DROP TABLE IF EXISTS authorities;
+CREATE TABLE authorities
 (
-    authority varchar(255) not null,
-    username  varchar(255) not null,
-    constraint authorities_pkey
-        primary key (authority, username)
+    authority VARCHAR(20) NOT NULL,
+    username  VARCHAR(50) NOT NULL,
+    CONSTRAINT authorities_pkey
+        PRIMARY KEY(authority, username)
 );
-

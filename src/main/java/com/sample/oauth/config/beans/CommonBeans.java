@@ -9,7 +9,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class CommonBeans {
     /**
      * Bean for Password encoder
-     * @Return password encoder
+     *
+     * @return password encoder
      */
     @Bean
     public PasswordEncoder encoder() {

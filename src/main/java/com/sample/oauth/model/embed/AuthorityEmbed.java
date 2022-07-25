@@ -1,6 +1,9 @@
 package com.sample.oauth.model.embed;
 
 import com.sample.oauth.enums.Roles;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
@@ -10,6 +13,9 @@ import java.util.Objects;
 
 import static com.sample.oauth.enums.Roles.ROLE_USER;
 
+@Getter
+@Setter
+@ToString
 @Embeddable
 public class AuthorityEmbed implements Serializable {
 
@@ -19,22 +25,6 @@ public class AuthorityEmbed implements Serializable {
     @Column(name = "authority", nullable = false)
     @Enumerated(EnumType.STRING)
     private Roles authority = ROLE_USER;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public Roles getAuthority() {
-        return authority;
-    }
-
-    public void setAuthority(Roles authority) {
-        this.authority = authority;
-    }
 
     @Override
     public boolean equals(Object o) {
