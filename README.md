@@ -8,7 +8,7 @@ First just copy DDL.sql and paste in your client application (for example MySQL 
 and after that copy and DML.sql file.
 
 ## Postman
-You can use postman for sending requests. Run application in your local machine.
+You can use postman for sending requests.
 
 #### Run application
 Run application in your local machine
