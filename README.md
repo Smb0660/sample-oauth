@@ -1,8 +1,8 @@
 # OAuth Sample
-This module lets you authenticate using OAuth 2.0 in your Spring Boot applications.
+This module lets you authorization using OAuth 2.0 in your Spring Boot applications.
 
 ### Database
-To use this module,first you must build the database․
+To use this module, first you must build the database․
 In project resouce->database->migration folder you can find DDL.sql and DML.sql files.
 First just copy DDL.sql and paste in your client application (for example MySQL Workbench, DataGrip etc.),
 and after that copy and DML.sql file.
@@ -15,7 +15,7 @@ Run application in your local machine
 #### Postman
 Open Postman Desktop.
 You can't send requests from Postman Web because you must working with localhost
-## Authentication
+## Authorization
 
 #### Postman
 Move into Authorization section.Under Configure New Token --> Configuration Options
@@ -30,7 +30,7 @@ Move into Authorization section.Under Configure New Token --> Configuration Opti
 
 
 #### Get Dummy
-For getting dummy values authentication is not required.
+For getting dummy values authorization is not required.
 ```http
   GET /dummy
 ```
